@@ -1,0 +1,23 @@
+<!-- NOT FINISHED-->
+<html>
+
+<input>+<input> = <input>
+
+<script> 
+    //Przy użyciu myszy nic się nie kopiuje i wkleja
+    let [a,b,c] = document.querySelectorAll('input');
+    a.onkeyup = b.onkeyup = function f(){ c.value = +a.value + +b.value }
+    c.onkeyup = function g() { a.value = b.value = c.value / 2 }
+
+    //Poprawki żeby działało
+    a.oncut = b.oncut = f();
+    c.oncut = g();
+
+    a.onpaste = b.onpaste = f();
+    c.onpaste = b.onpaste = g();
+
+    //Trzeba dorobić do wklejania myszką bo do tego jest potrzebny ten set timeout
+</script>
+
+</html>
+24
